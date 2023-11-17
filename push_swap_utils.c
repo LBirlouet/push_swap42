@@ -6,7 +6,7 @@
 /*   By: lbirloue <lbirloue@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 17:58:47 by lbirloue          #+#    #+#             */
-/*   Updated: 2023/11/17 12:28:54 by lbirloue         ###   ########.fr       */
+/*   Updated: 2023/11/17 15:30:09 by lbirloue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,25 @@ int verif_arg(int argc, char **argv)
         i++;
     }
     return (0);
+}
+
+int ft_min_in_tab(int *tab)
+{
+    int min;
+    int i;
+
+    min = INT_MAX;
+    i = 0;
+    while (tab_size(tab) > i + 1)
+    {
+        if (tab[i] < min)
+            min = tab[i];
+        i++;
+    }
+    i = 0;
+    while (tab[i] != min)
+        i++;
+    return (i);
 }
 
 int ft_conv_char_int(char *str)
@@ -110,4 +129,40 @@ int *verif_diff(int *tab, int i, int j)
         i++;
     }
     return (tab);
+}
+
+int check_order(int *tab)
+{
+    int i;
+    int verif;
+    int tempo;
+
+    i = 0;
+    verif = 0;
+    tempo = INT_MIN;
+    if (tab_size(tab) == 2)
+    {
+        if (tab[0] < tab[1])
+            return (1);
+        else
+            return (-1);
+    }
+    while(tab_size(tab) > i)
+    {
+        if (tempo < tab[i])
+        {
+            printf("--\n");
+            tempo = tab[i];
+            verif++;
+        }
+        else
+            return (verif);
+        i++;
+    }
+    printf("veriffff== %d\n", verif);
+    printf("tab_size== %d\n", tab_size(tab));
+    if (verif != tab_size(tab))
+        return (verif);
+    else
+        return (0);
 }
