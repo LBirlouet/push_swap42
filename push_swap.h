@@ -6,7 +6,7 @@
 /*   By: lbirloue <lbirloue@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 17:48:05 by lbirloue          #+#    #+#             */
-/*   Updated: 2023/11/17 15:22:54 by lbirloue         ###   ########.fr       */
+/*   Updated: 2023/11/18 11:27:32 by lbirloue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,13 @@ int ft_is_nbr(char *str);
 int verif_arg(int argc, char **argv);
 int ft_conv_char_int(char *str);
 int ft_min_in_tab(int *tab);
+int ft_bigger_in_tab(int *tab);
+/*  ALGOOOOOOO  */
 int *ft_algo_2_arg(int *tab);
 int *ft_algo_3_arg(int *tab, int *tab_b);
-int *ft_algo_big(int *tab, int *tab_b);
+int *ft_algo_4_arg(int *tab, int *tab_b);
+int *ft_algo_5_arg(int *tab, int *tab_b);
+/*  FIN AGLOOOO */
 int tab_size(int *tab);
 int *verif_diff(int *tab, int i, int j);
 /*check l'ordre*/
