@@ -6,7 +6,7 @@
 /*   By: lbirloue <lbirloue@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 17:58:47 by lbirloue          #+#    #+#             */
-/*   Updated: 2023/11/18 11:00:22 by lbirloue         ###   ########.fr       */
+/*   Updated: 2023/11/18 14:17:16 by lbirloue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,14 @@ int verif_arg(int argc, char **argv)
     return (0);
 }
 
-int ft_min_in_tab(int *tab)
+int ft_min_in_tab(int *tab, int size)
 {
     int min;
     int i;
 
     min = INT_MAX;
     i = 0;
-    while (tab_size(tab) > i)
+    while (size > i)
     {
         if (tab[i] < min)
             min = tab[i];
@@ -67,7 +67,7 @@ int ft_min_in_tab(int *tab)
     return (i);
 }
 
-int ft_bigger_in_tab(int *tab)
+int ft_bigger_in_tab(int *tab, int size)
 {
     int max;
     int i;
@@ -75,7 +75,7 @@ int ft_bigger_in_tab(int *tab)
     max = INT_MIN;
     i = 0;
     int j = 0;
-    while (tab_size(tab) > i)
+    while (size > i)
     {
         if (tab[i] > max)
         {

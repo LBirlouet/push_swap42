@@ -6,7 +6,7 @@
 /*   By: lbirloue <lbirloue@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 17:49:20 by lbirloue          #+#    #+#             */
-/*   Updated: 2023/11/18 10:55:20 by lbirloue         ###   ########.fr       */
+/*   Updated: 2023/11/18 14:59:10 by lbirloue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@ void    ft_free(int *tab)
     free(tab);
     tab == NULL;
     return ;
+}
+
+int    ft_error_msg(void)
+{
+    write(2, "Error\n", 6);
+    return (-1);
 }
 
 void    ft_put_in_tab(int argc, char **argv, int *tab)
@@ -37,9 +43,16 @@ int main(int argc, char **argv)
     int *tab;
     int *tab_b;
     int verif;
+    int asuppppp;
 
-    if (verif_arg(argc, argv) == -1 || argc <= 2)
+    asuppppp = argc -1;
+
+
+    if ((verif_arg(argc, argv) == -1 )|| argc <= 2)
+    {
+        ft_error_msg;
         return (-1);
+    }
     tab = malloc((argc-1) * sizeof(int));
     if (!tab)
         return(-1);
@@ -58,10 +71,11 @@ int main(int argc, char **argv)
     /*  tessssstttttt   */
     int i;
     i = 0;
-    while (tab[i])
+    while (asuppppp > 0)
     {
         printf("==tab[%d]==%d\n", i, tab[i]);
         i++;
+        asuppppp--;
     }
     free(tab);
     free(tab_b);

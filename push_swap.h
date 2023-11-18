@@ -6,7 +6,7 @@
 /*   By: lbirloue <lbirloue@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 17:48:05 by lbirloue          #+#    #+#             */
-/*   Updated: 2023/11/18 11:27:32 by lbirloue         ###   ########.fr       */
+/*   Updated: 2023/11/18 14:53:44 by lbirloue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,18 @@
 # include <stdio.h>
 
 int main(int argc, char **argv);
+int ft_error_msg(void);
 int ft_is_nbr(char *str);
 int verif_arg(int argc, char **argv);
 int ft_conv_char_int(char *str);
-int ft_min_in_tab(int *tab);
-int ft_bigger_in_tab(int *tab);
+int ft_min_in_tab(int *tab, int size);
+int ft_bigger_in_tab(int *tab, int size);
 /*  ALGOOOOOOO  */
 int *ft_algo_2_arg(int *tab);
 int *ft_algo_3_arg(int *tab, int *tab_b);
 int *ft_algo_4_arg(int *tab, int *tab_b);
 int *ft_algo_5_arg(int *tab, int *tab_b);
+int *big_algo(int *tab, int *tab_b, int size);
 /*  FIN AGLOOOO */
 int tab_size(int *tab);
 int *verif_diff(int *tab, int i, int j);
