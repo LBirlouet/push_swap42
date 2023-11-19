@@ -6,7 +6,7 @@
 /*   By: lbirloue <lbirloue@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 17:49:20 by lbirloue          #+#    #+#             */
-/*   Updated: 2023/11/18 14:59:10 by lbirloue         ###   ########.fr       */
+/*   Updated: 2023/11/19 08:50:31 by lbirloue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void    ft_free(int *tab)
 
 int    ft_error_msg(void)
 {
-    write(2, "Error\n", 6);
+    write(1, "Error\n", 6);
     return (-1);
 }
 
