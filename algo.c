@@ -6,7 +6,7 @@
 /*   By: lbirloue <lbirloue@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 10:54:32 by lbirloue          #+#    #+#             */
-/*   Updated: 2023/11/19 11:25:49 by lbirloue         ###   ########.fr       */
+/*   Updated: 2023/11/19 15:04:04 by lbirloue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,93 +59,48 @@ int *ft_algo_4_arg(int *tab, int *tab_b)
     i = 0;
     min = ft_min_in_tab(tab, 4);
     max = ft_bigger_in_tab(tab, 4);
-    /*attt tessssttttt*//*
     check = check_order(tab);
-    while(check != 0)
-    {
-        i = 0;
-        min = ft_min_in_tab(tab, 4);
-        while(min > 0)
-        {
-            tab = ft_ra(tab, 4, 0);
-            min--;
-        }
-        tab = ft_pb(tab, tab_b);
-        while (i < 4)
-        {
-            tab = ft_pa(tab, tab_b);
-            i++;
-        }
-        check = check_order(tab);
-    }
-}
-*/
     if (check == 0)
         return (tab);
-    if (min == 0 && check != 0)
+    max = ft_bigger_in_tab(tab, 4);
+    if (min == 3)
+    {
+        tab = ft_rra(tab, 5, 0);
+        min = 0;
+    }
+    if (min == 0 && (check_order(tab) != 0))
     {
         tab = ft_pb(tab, tab_b);
-        tab = ft_algo_4_arg(tab, tab_b);
-        printf("ohhh\n");
-        tab = ft_pa(tab, tab_b);
-    }
-    if (min == 3 && max == 0)
-    {
-        tab == ft_rra(tab, 5, 0);
-        tab == ft_pb(tab, tab_b);
-        tab == ft_algo_3_arg(tab, tab_b);
-        tab == ft_pa(tab, tab_b);
-    }
-
-    else if (min == 3)
-        tab = ft_ra(tab, 5, 0);
-    else if (max == 2 && min == 0)
-    {
-        check = check_order(tab);
-        while ((check - 1) != 0)
-        {
-            tab = ft_pb(tab, tab_b);
-            i++;
-            check --;
-        }
         tab = ft_algo_3_arg(tab, tab_b);
-        while (i != 0)
-        {
-            tab = ft_pa(tab, tab_b);
-            i--;
-        }
-        return(tab);
+        return (ft_pa(tab, tab_b));
     }
-    else if (max == 3)
-    {
-        if (min == 0)
-        {
-            tab = ft_pb(tab, tab_b);
-            tab = ft_algo_4_arg(tab, tab_b);
-        }
-        if (min == 1)
-        {
-            tab = ft_sa(tab, 0);
-            tab = ft_algo_4_arg(tab, tab_b);
-        }
-        if (min == 2)
-        {
-            tab = ft_ra(tab,(tab_size(tab)), 0);
-            tab = ft_algo_4_arg(tab, tab_b);
-        }
-    }
-    else if (max == 0 )
-    {
-        tab = ft_ra(tab, 5, 0);
-        return (ft_algo_3_arg(tab, tab_b));
-    }
-    else if (max == 2 ||max == 1)
+    if (max == 0)
+        tab = ft_ra(tab, 4, 0);
+    min = ft_min_in_tab(tab, (tab_size(tab)));
+    min = ft_min_in_tab(tab, (tab_size(tab)));
+    if (min == 1)
     {
         tab = ft_sa(tab, 0);
-        return(ft_algo_4_arg(tab, tab_b));
+        tab = ft_algo_4_arg(tab, tab_b);
     }
-    if (tab_size(tab_b) > 0)
+    min = ft_min_in_tab(tab, (tab_size(tab)));
+    if (min == 4)
+        tab = ft_rra(tab, 4, 0);
+    while (min > 1)
+    {
+        tab = ft_ra(tab, 4, 0);
+        min--;
+    }
+    if (min == 0 && (check_order(tab) != 0))
+    {
+        tab = ft_pb(tab, tab_b);
+        tab = ft_algo_3_arg(tab, tab_b);
+        return(ft_pa(tab, tab_b));
+    }
+    while (tab_size(tab_b) > 0)
         ft_pa(tab, tab_b);
+    if (check_order(tab) != 0)
+        return (ft_algo_4_arg(tab, tab_b));
     return (tab);
 }
 
@@ -153,39 +108,43 @@ int *ft_algo_5_arg(int *tab, int *tab_b)
 {
     int min;
     int max;
+    int check;
     int i;
 
     i = 0;
-    min = ft_min_in_tab(tab, 5);
     max = ft_bigger_in_tab(tab, 5);
-    if(check_order(tab) == 0)
-    {
-        printf("mais vieeeent\n");
-        return (tab);
-    }
-    if (max == 0 || max == 1)
-    {
-        if (max == 1)
-            tab = ft_sa(tab, 0);
-        tab = ft_ra(tab, 6, 0);
-        return(ft_algo_4_arg(tab, tab_b));
-    }
-    if (max == 4)
-        return(ft_algo_4_arg(tab, tab_b));
-    int check;
     check = check_order(tab);
-    if (max == 3)
-    {
-        tab = ft_rra(tab, 6, 0);
-        return(ft_algo_4_arg(tab, tab_b));
-    }
-    if (max == 2)
-    {
+    if (check == 0)
+        return (tab);
+    if (max == 0)
         tab = ft_ra(tab, 6, 0);
-        tab = ft_sa(tab, 0);
-        return(ft_algo_5_arg(tab, tab_b));
+    if (max == 1)
+    {
+        tab == ft_sa(tab, 0);
+        return (ft_algo_5_arg(tab, tab_b));
     }
-    return (tab);
+    min = ft_min_in_tab(tab, 5);
+    if (min == 1)
+        tab = ft_sa(tab, 0);
+    min = ft_min_in_tab(tab, 5);
+    if (min == 0 && (check_order(tab) != 0))
+    {
+        tab = ft_pb(tab, tab_b);
+        tab = ft_algo_4_arg(tab, tab_b);
+        return (ft_pa(tab, tab_b));
+    }
+    while (min > 1)
+    {
+        if (min > 3)
+            tab = ft_rra(tab, 6, 0);
+        else
+            tab = ft_ra(tab, 6, 0);
+        min = ft_min_in_tab(tab, 5);
+    }
+    return(ft_algo_5_arg(tab, tab_b));
+    
+
+    //return (tab);
 }
 
 int *big_algo(int *tab, int *tab_b, int size)
