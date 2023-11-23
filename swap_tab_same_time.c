@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo_tab_same_time.c                               :+:      :+:    :+:   */
+/*   swap_tab_same_time.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbirloue <lbirloue@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 09:38:25 by lbirloue          #+#    #+#             */
-/*   Updated: 2023/11/17 12:31:04 by lbirloue         ###   ########.fr       */
+/*   Updated: 2023/11/23 10:25:55 by lbirloue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int *ft_rr(int *tab, int *tab_b, int argc)
     tab = ft_ra(tab, argc, 1);
     tab_b = ft_rb(tab_b, argc, 1);
     write(1, "rr\n", 3);
-    return (tab, tab_b);
+    return (tab);
 }
 
 int *ft_rrr(int *tab, int *tab_b, int argc)
@@ -33,5 +33,5 @@ int *ft_rrr(int *tab, int *tab_b, int argc)
     tab = ft_rra(tab, argc, 1);
     tab_b = ft_rrb(tab_b, argc, 1);
     write(1, "rrr\n", 4);
-    return (tab, tab_b);
+    return (tab);
 }

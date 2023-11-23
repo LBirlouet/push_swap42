@@ -6,7 +6,7 @@
 /*   By: lbirloue <lbirloue@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 10:54:32 by lbirloue          #+#    #+#             */
-/*   Updated: 2023/11/19 15:04:04 by lbirloue         ###   ########.fr       */
+/*   Updated: 2023/11/23 10:28:55 by lbirloue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ int    *ft_algo_2_arg(int *tab)
     second = tab[1];
     if (first > second)
         tab = ft_sa(tab, 0);
-    else
-        return (tab);
+    return (tab);
 }
 
 int *ft_algo_3_arg(int *tab, int *tab_b)
@@ -120,7 +119,7 @@ int *ft_algo_5_arg(int *tab, int *tab_b)
         tab = ft_ra(tab, 6, 0);
     if (max == 1)
     {
-        tab == ft_sa(tab, 0);
+        tab = ft_sa(tab, 0);
         return (ft_algo_5_arg(tab, tab_b));
     }
     min = ft_min_in_tab(tab, 5);
@@ -203,9 +202,9 @@ int *big_algo(int *tab, int *tab_b, int size)
                 if (min == 1)
                     tab = ft_sa(tab, 0);
                 else if (min > (size/2))
-                    tab ==ft_rra(tab, (size + 1), 0);
+                    tab = ft_rra(tab, (size + 1), 0);
                 else if (min < (size/2))
-                    tab ==ft_ra(tab, (size+1), 0);
+                    tab = ft_ra(tab, (size+1), 0);
                 min = ft_min_in_tab(tab, size);
                 printf("mineuuu== %d\n", min);
             }
