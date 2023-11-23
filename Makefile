@@ -6,12 +6,11 @@
 #    By: lbirloue <lbirloue@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/16 17:45:56 by lbirloue          #+#    #+#              #
-#    Updated: 2023/11/23 13:33:26 by lbirloue         ###   ########.fr        #
+#    Updated: 2023/11/23 14:34:16 by lbirloue         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-
-NAME		=	 push_swap
+NAME		=	push_swap
 
 CC			=	gcc
 
@@ -29,14 +28,13 @@ SRCS		=	main_push_swap.c \
 				simple_dispach.c 
 
 
-
 OBJS = $(SRCS:.c=.o)
 
 
 all : $(NAME) clean
 
 
-$(NAME) : $(M_OBJS)
+$(NAME) : $(OBJS)
 	$(CC) $(CFLAGS) $^ -o $@
 
 

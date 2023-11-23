@@ -6,7 +6,7 @@
 /*   By: lbirloue <lbirloue@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 17:58:47 by lbirloue          #+#    #+#             */
-/*   Updated: 2023/11/23 10:05:57 by lbirloue         ###   ########.fr       */
+/*   Updated: 2023/11/23 14:31:34 by lbirloue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ int	ft_is_nbr(char *str)
 			return (1);
 		if (str[i] == '-' && i > 0)
 			return (-1);
-		if (!((str[i] >= '0' && str[i] <= '9') || str[i] == '-'))
+		if (str[i] == '-' && str[i+1] <= 9 || str[i+1] >= 0)
+			return (0);
+		if (!((str[i] >= '0' && str[i] <= '9') || (str[i] == '-' && (str[i+1] >= '0' && str[i+1] <= '9'))))
 			return (-1);
 		i++;
 	}
