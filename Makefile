@@ -6,13 +6,12 @@
 #    By: lbirloue <lbirloue@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/16 17:45:56 by lbirloue          #+#    #+#              #
-#    Updated: 2023/11/18 10:51:54 by lbirloue         ###   ########.fr        #
+#    Updated: 2023/11/23 13:33:26 by lbirloue         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-
-NAME		=	 push_swap.a
+NAME		=	 push_swap
 
 CC			=	gcc
 
@@ -20,39 +19,40 @@ CFLAGS		=	-Wall -Wextra -Werror
 
 INCLUDES	=	push_swap.h
 
-SRCS		=	main.c \
-				push_swap_utils.c \
+SRCS		=	main_push_swap.c \
+				algo_diverse.c \
 				algo_tab_a.c \
 				algo_tab_b.c \
 				algo_tab_same_time.c \
-				algo_diverse.c \
-				simple_dispach.c \
-
-
-OBJS		=	${SRCS:.c=.o}
+				algo.c \
+				push_swap_utils.c \
+				simple_dispach.c 
 
 
 
-all:		${NAME}
+OBJS = $(SRCS:.c=.o)
 
 
-${NAME}:	${OBJS}
-	ar -rc ${NAME} ${OBJS}
+all : $(NAME) clean
 
 
-%.o:		%.c
-	@${CC} ${CFLAGS} ${INCLUDES} -c $< -o $@
+$(NAME) : $(M_OBJS)
+	$(CC) $(CFLAGS) $^ -o $@
+
+
+%.o : %.c push_swap.h
+	$(CC) $(CFLAGS) -c $< -o $@
 
 
 clean:
-	rm -f ${OBJS}
+	rm -rf $(OBJS)
 
 
-fclean:		clean
-	rm -f ${NAME}
+fclean: clean
+	rm -rf $(NAME) 
 
 
-re:			fclean all
+re: fclean all
 
 
-.PHONY:		all clean fclean re 
+.PHONY:		all clean fclean re
