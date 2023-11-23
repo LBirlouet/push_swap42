@@ -6,7 +6,7 @@
 /*   By: lbirloue <lbirloue@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 09:55:18 by lbirloue          #+#    #+#             */
-/*   Updated: 2023/11/23 13:14:53 by lbirloue         ###   ########.fr       */
+/*   Updated: 2023/11/23 14:37:22 by lbirloue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	*ft_pa_norm(int *tab, int tempo)
 	int	i;
 
 	i = 0;
+	tempo = 0;
 	while (tab[i])
 	{
 		tempo = tab[i + 1];
@@ -34,6 +35,7 @@ int	*ft_pa(int *tab_a, int *tab_b)
 	int	size;
 
 	i = 0;
+	second_tempo = 0;
 	if (!tab_b)
 		return (NULL);
 	else
@@ -58,6 +60,7 @@ int	*ft_pb_norm(int *tab, int tempo)
 	int	i;
 
 	i = 0;
+	tempo = 0;
 	while (tab[i])
 	{
 		tempo = tab[i + 1];
@@ -75,6 +78,7 @@ int	*ft_pb(int *tab_a, int *tab_b)
 	int	size;
 
 	i = 0;
+	second_tempo = 0;
 	if (!tab_a)
 		return (NULL);
 	else

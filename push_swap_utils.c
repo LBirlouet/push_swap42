@@ -6,7 +6,7 @@
 /*   By: lbirloue <lbirloue@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 17:58:47 by lbirloue          #+#    #+#             */
-/*   Updated: 2023/11/23 14:31:34 by lbirloue         ###   ########.fr       */
+/*   Updated: 2023/11/23 16:55:38 by lbirloue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,12 @@ int	ft_is_nbr(char *str)
 	{
 		if (str[i] == '\0')
 			return (1);
-		if (str[i] == '-' && i > 0)
-			return (-1);
-		if (str[i] == '-' && str[i+1] <= 9 || str[i+1] >= 0)
-			return (0);
-		if (!((str[i] >= '0' && str[i] <= '9') || (str[i] == '-' && (str[i+1] >= '0' && str[i+1] <= '9'))))
+		if (str[i] == '-')
+		{
+			if (str[i + 1]<= '0' || str[i + 1] >= '9')
+				return (-1);
+		}
+		if (!((str[i] >= '0' && str[i] <= '9') || str[i] == '-'))
 			return (-1);
 		i++;
 	}
@@ -93,10 +94,10 @@ int	ft_bigger_in_tab(int *tab, int size)
 	return (j);
 }
 
-int	ft_conv_char_int(char *str)
+ssize_t	ft_conv_char_int(char *str)
 {
-	int	ret;
-	int	i;
+	ssize_t	ret;
+	ssize_t	i;
 
 	i = 0;
 	ret = 0;
@@ -118,6 +119,7 @@ int	ft_conv_char_int(char *str)
 			i++;
 		}
 	}
+	
 	return (ret);
 }
 
@@ -131,7 +133,7 @@ int	tab_size(int *tab)
 	return (i);
 }
 
-int	*verif_diff(int *tab, int i, int j)
+int	*verif_diff(int *tab, int i, int j, int size)
 {
 	if (tab_size(tab) == 2)
 	{
@@ -140,12 +142,12 @@ int	*verif_diff(int *tab, int i, int j)
 		else
 			return (tab);
 	}
-	if (tab[0] == tab[tab_size(tab) - 1])
+	if (tab[0] == tab[size])
 		return (NULL);
 	while (tab[i])
 	{
 		j = 1 + i;
-		while (j <= tab_size(tab))
+		while (j <= size)
 		{
 			if (tab[i] == tab[j])
 				return (NULL);
@@ -157,7 +159,7 @@ int	*verif_diff(int *tab, int i, int j)
 	return (tab);
 }
 
-int	check_order(int *tab)
+int	check_order(int *tab, int size)
 {
 	int i;
 	int verif;
@@ -173,7 +175,7 @@ int	check_order(int *tab)
 		else
 			return (-1);
 	}
-	while (tab_size(tab) > i)
+	while (size > i)
 	{
 		if (tempo < tab[i])
 		{
@@ -184,7 +186,7 @@ int	check_order(int *tab)
 			return (verif);
 		i++;
 	}
-	if (verif != tab_size(tab))
+	if (verif != size)
 		return (verif);
 	else
 		return (0);
