@@ -6,7 +6,7 @@
 #    By: lbirloue <lbirloue@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/16 17:45:56 by lbirloue          #+#    #+#              #
-#    Updated: 2023/11/23 14:34:16 by lbirloue         ###   ########.fr        #
+#    Updated: 2023/11/24 12:23:34 by lbirloue         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ SRCS		=	main_push_swap.c \
 OBJS = $(SRCS:.c=.o)
 
 
-all : $(NAME) clean
+all : $(NAME) 
 
 
 $(NAME) : $(OBJS)
@@ -48,7 +48,6 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME) 
-
 
 re: fclean all
 

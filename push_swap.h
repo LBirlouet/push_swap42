@@ -6,7 +6,7 @@
 /*   By: lbirloue <lbirloue@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 17:48:05 by lbirloue          #+#    #+#             */
-/*   Updated: 2023/11/23 16:56:27 by lbirloue         ###   ########.fr       */
+/*   Updated: 2023/11/24 10:07:47 by lbirloue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ int		*ft_ss(int *tab, int *tab_b);
 int		*ft_rr(int *tab, int *tab_b, int argc);
 int		*ft_rrr(int *tab, int *tab_b, int argc);
 /*diverse*/
-int		*ft_pa(int *tab_a, int *tab_b);
-int		*ft_pa_norm(int *tab, int tempo);
-int		*ft_pb(int *tab_a, int *tab_b);
-int		*ft_pb_norm(int *tab, int tempo);
+int		*ft_pa(int *tab_a, int *tab_b, int size);
+int		*ft_pa_norm(int *tab, int tempo, int size);
+int		*ft_pb(int *tab_a, int *tab_b, int size);
+int		*ft_pb_norm(int *tab, int tempo, int size);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lbirloue <lbirloue@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 17:49:20 by lbirloue          #+#    #+#             */
-/*   Updated: 2023/11/23 16:57:48 by lbirloue         ###   ########.fr       */
+/*   Updated: 2023/11/28 12:40:53 by lbirloue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ int	main(int argc, char **argv)
 	int	*tab_b;
 	int	verif;
 	int	asuppppp;
-//	int	i;
 
 	asuppppp = argc - 1;
 	if (argc <= 2)
@@ -64,7 +63,18 @@ int	main(int argc, char **argv)
 	tab_b = malloc((argc - 1) * sizeof(int));
 	if (!tab_b)
 		return (-1);
+	printf("%p %p\n", &tab_b[0], &tab[4]);
+
 	verif = ft_put_in_tab(argc, argv, tab);
+
+	// int	i;
+	// i = 0;
+	// while (asuppppp > 0)
+	// {
+	// 	printf("==tab[%d]==%d\n", i, tab[i]);
+	// 	i++;
+	// 	asuppppp--;
+	// }
 	if (verif == -1)
 	{
         ft_error_msg();
@@ -76,15 +86,16 @@ int	main(int argc, char **argv)
 		ft_error_msg();
 		return (-1);
 	}
-	// //   ft_free(tab);
-	// /*  tessssstttttt   */
+	//   ft_free(tab);
+	/*  tessssstttttt   */
+	// int	i;
 	// i = 0;
-	// while (asuppppp > 0)
-	// {
-	// 	printf("==tab[%d]==%d\n", i, tab[i]);
-	// 	i++;
-	// 	asuppppp--;
-	// }
+	// // while (asuppppp > 0)
+	// // {
+	// // 	printf("==tab[%d]==%d\n", i, tab[i]);
+	// // 	i++;
+	// // 	asuppppp--;
+	// // }
 	free(tab);
 	free(tab_b);
 	return (0);
