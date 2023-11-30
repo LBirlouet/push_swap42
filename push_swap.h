@@ -6,7 +6,7 @@
 /*   By: lbirloue <lbirloue@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 17:48:05 by lbirloue          #+#    #+#             */
-/*   Updated: 2023/11/24 10:07:47 by lbirloue         ###   ########.fr       */
+/*   Updated: 2023/11/30 17:49:56 by lbirloue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,17 @@ int		verif_arg(int argc, char **argv);
 ssize_t	ft_conv_char_int(char *str);
 int		ft_min_in_tab(int *tab, int size);
 int		ft_bigger_in_tab(int *tab, int size);
+/*one arg*/
+int		arg_counter(char *str);
+int		one_str(char *str);
+int		put_one_str_in_tab(int nbr_arg, char *str, int *tab);
+int		one_str_conv_int(char *str, int j);
 /*  ALGOOOOOOO  */
 int		*ft_algo_2_arg(int *tab);
 int		*ft_algo_3_arg(int *tab, int *tab_b);
 int		*ft_algo_4_arg(int *tab, int *tab_b);
 int		*ft_algo_5_arg(int *tab, int *tab_b);
-int		*big_algo(int *tab, int *tab_b, int size);
+int		*big_algo(int *tab, int *tab_b, int size, int size_no_moove);
 /*  FIN AGLOOOO */
 int		tab_size(int *tab);
 int		*verif_diff(int *tab, int i, int j, int size);

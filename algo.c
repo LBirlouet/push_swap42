@@ -6,7 +6,7 @@
 /*   By: lbirloue <lbirloue@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 10:54:32 by lbirloue          #+#    #+#             */
-/*   Updated: 2023/11/28 12:39:41 by lbirloue         ###   ########.fr       */
+/*   Updated: 2023/11/30 18:21:47 by lbirloue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,18 +69,16 @@ int	*ft_algo_4_arg(int *tab, int *tab_b)
 	}
 	if (min == 0 && (check_order(tab, 4) != 0))
 	{
-	printf("%p %p\n", &tab_b[0], &tab[4]);
 		tab = ft_pb(tab, tab_b, 4);
-		printf("oui|%d:%d:%d:%d:%d:%d|\n", tab[0], tab[1], tab[2], tab[3], tab[4], tab[5]);
-		printf("|%d:%d:%d:%d:%d:%d|\n", tab_b[0], tab_b[1], tab_b[2], tab_b[3], tab_b[4], tab_b[5]);
+		// printf("oui|%d:%d:%d:%d:%d:%d|\n", tab[0], tab[1], tab[2], tab[3], tab[4], tab[5]);
+		// printf("|%d:%d:%d:%d:%d:%d|\n", tab_b[0], tab_b[1], tab_b[2], tab_b[3], tab_b[4], tab_b[5]);
 		tab = ft_algo_3_arg(tab, tab_b);
 		return (ft_pa(tab, tab_b, 4));
 	}
 	if (max == 0)
 	{
-	printf("%p %p\n", &tab_b[0], &tab[4]);
 		tab = ft_ra(tab, 5, 0);
-		printf("rrrra|%d:%d:%d:%d:%d:%d|\n", tab[0], tab[1], tab[2], tab[3], tab[4], tab[5]);
+	//	printf("rrrra|%d:%d:%d:%d:%d:%d|\n", tab[0], tab[1], tab[2], tab[3], tab[4], tab[5]);
 		return (ft_algo_4_arg(tab, tab_b));
 	}
 	if (min == 1)
@@ -125,7 +123,7 @@ int	*ft_algo_5_arg(int *tab, int *tab_b)
 	if (max == 0)
 	{
 		tab = ft_ra(tab, 6, 0);
-		printf("|%d:%d:%d:%d:%d:%d|\n", tab[0], tab[1], tab[2], tab[3], tab[4], tab[5]);
+//		printf("|%d:%d:%d:%d:%d:%d|\n", tab[0], tab[1], tab[2], tab[3], tab[4], tab[5]);
 	}
 	if (max == 1)
 	{
@@ -162,14 +160,14 @@ int	*ft_algo_5_arg(int *tab, int *tab_b)
 	return (ft_algo_5_arg(tab, tab_b));
 }
 
-int	*big_algo(int *tab, int *tab_b, int size)
+int	*big_algo(int *tab, int *tab_b, int size, int size2)
 {
 	int	min;
 	int	check;
 	int	i;
 	int	size_down;
 	
-	printf("TSSS\n\n");
+	(void)size2;
 	min = ft_min_in_tab(tab, size);
 	check = check_order(tab, size);
 	size_down = size;
@@ -178,9 +176,9 @@ int	*big_algo(int *tab, int *tab_b, int size)
 	//
 	int	z;
 	z = 0;
-	while (z < 10)
+	while (z < 20)
 	{
-		printf("tab[%d]=|%d|", z, tab[z]);
+		printf("tab[%d]=|%d|\n", z, tab[z]);
 		z++;
 	}
 	//tesssssttttttttt
@@ -205,9 +203,9 @@ int	*big_algo(int *tab, int *tab_b, int size)
 		min = ft_min_in_tab(tab, size);
 		tab = ft_pb(tab, tab_b, size);
 		size --;
-		tab = big_algo(tab, tab_b, size);
+		tab = big_algo(tab, tab_b, size, size2);
 		//printf("oui\n");
 		tab = ft_pa(tab, tab_b, size);
 	}
-	return (big_algo(tab, tab_b, size));
+	return (big_algo(tab, tab_b, size, size2));
 }

@@ -6,7 +6,7 @@
 /*   By: lbirloue <lbirloue@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 09:55:18 by lbirloue          #+#    #+#             */
-/*   Updated: 2023/11/28 12:37:05 by lbirloue         ###   ########.fr       */
+/*   Updated: 2023/11/30 09:35:30 by lbirloue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int	*ft_pb(int *tab_a, int *tab_b, int size)
 		return (NULL);
 	else
 	{
-		printf("|avant|%d:%d:%d:%d:%d:%d|||\n", tab_a[0], tab_a[1], tab_a[2], tab_a[3], tab_a[4], tab_a[5]);
+	//	printf("|avant|%d:%d:%d:%d:%d:%d|||\n", tab_a[0], tab_a[1], tab_a[2], tab_a[3], tab_a[4], tab_a[5]);
 		tempo = tab_a[0];
 		tab_a = ft_pb_norm(tab_a, second_tempo, size);
 		while (size > 0)
@@ -98,7 +98,6 @@ int	*ft_pb(int *tab_a, int *tab_b, int size)
 		// printf("%d\n", tab_a[4]);
 		// printf("|b|%d:%d:%d:%d:%d:%d|||\n", tab_b[0], tab_b[1], tab_b[2], tab_b[3], tab_b[4], tab_b[5]);
 		// printf("avaaant%d\n", tab_a[4]);
-		printf("%p %p\n", &tab_b[0], &tab_a[4]);
 		tab_b[0] = tempo;
 		// printf("apressssss%d\n", tab_a[4]);
 		// //tab_a[5] = 18599;

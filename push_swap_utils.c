@@ -6,31 +6,134 @@
 /*   By: lbirloue <lbirloue@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 17:58:47 by lbirloue          #+#    #+#             */
-/*   Updated: 2023/11/24 08:31:49 by lbirloue         ###   ########.fr       */
+/*   Updated: 2023/11/30 16:40:53 by lbirloue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int ft_strlen(char *str)
+{
+	int i;
+
+	i = 0;
+	if (!str)
+		return (0);
+	while (str[i] != 0)
+		i++;
+	return (i);
+}
+
 int	ft_is_nbr(char *str)
 {
 	int	i;
+	int	size;
 
 	i = 0;
+	size = ft_strlen(str);
 	if (str[i] == '\0')
 		return (-1);
-	while (str[i])
+	while (str[i] == ' ')
+		i++;
+	if (str[i] == '\0')
+		return (-1);
+	if (str[i])
 	{
-		if (str[i] == '\0')
-			return (1);
+		while (str[i] == ' ')
+			i++;
 		if (str[i] == '-')
 		{
 			if (str[i + 1] <= '0' || str[i + 1] > '9')
 				return (-1);
+			i++;
 		}
-		if (!((str[i] >= '0' && str[i] <= '9') || str[i] == '-'))
+		while (str[i] >= '0' && str[i] <= '9')
+			i++;
+		while (str[i] == ' ')
+		{
+			i++;
+		}
+	//	printf("|%d|%d|\n", i, size);
+		if (i != size)
+			return (-1);
+	}
+	//printf("la\n");
+	return (0);
+}
+
+int	next_nbr(char *str, int i)
+{
+
+	while (str[i] == ' ' || str[i] == '-')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
+		i++;
+	return (i);
+}
+
+int	put_one_str_in_tab(int nbr_arg, char *str, int *tab)
+{
+	ssize_t	i;
+	ssize_t	conv;
+	int j;
+
+	i = 0;
+	j = 0;
+	while ((nbr_arg) > i)
+	{
+		conv = ft_conv_char_int(&str[j]);
+	//	printf("j == %d\n", j);
+	//	printf("|%zd|\n", conv);
+		if (conv > INT_MAX || conv < INT_MIN)
+			return (-1);
+		tab[i] = conv;
+		j = next_nbr(str, j);
+		i++;
+	}
+	return (0);
+}
+
+int arg_counter(char *str)
+{
+	int	i;
+	int	counter;
+
+	i = 0;
+	counter = 0;
+	while (str[i] != 0)
+	{
+		while (str[i] == ' ')
+			i++;
+		if (str[i] == '-')
+			i++;
+		if (str[i] >= '0' && str[i] <= '9')
+		{
+			while (str[i] >= '0' && str[i] <= '9')
+				i++;
+			counter ++;
+		}
+		while (str[i] == ' ')
+			i++;
+	}
+	return (counter);
+}
+
+int	verif_one_str(char *str)
+{
+	int	i;
+
+	i = 0;
+	while(str[i] != 0)
+	{
+		while (str[i] == ' ')
+			i++;
+		if (str[i] == '-')
+			i++;
+		if (str[i] < '0' || str[i] > '9')
 			return (-1);
 		i++;
+		while (str[i] == ' ')
+			i++;
 	}
 	return (0);
 }
@@ -43,6 +146,8 @@ int	verif_arg(int argc, char **argv)
 	i = 1;
 	if (argc < 2)
 		return (-1);
+	if (argc == 2)
+		return (verif_one_str(argv[1]));
 	while (i < argc)
 	{
 		verif = ft_is_nbr(argv[i]);
@@ -101,10 +206,12 @@ ssize_t	ft_conv_char_int(char *str)
 
 	i = 0;
 	ret = 0;
-	if (str[0] == '-')
+	while (str[i] == ' ')
+		i++;
+	if (str[i] == '-')
 	{
-		i = 1;
-		while (str[i] != '\0')
+		i += 1;
+		while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
 		{
 			ret = (ret * 10) + (str[i] - 48);
 			i++;
@@ -113,13 +220,12 @@ ssize_t	ft_conv_char_int(char *str)
 	}
 	else
 	{
-		while (str[i] != '\0')
+		while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
 		{
 			ret = (ret * 10) + (str[i] - 48);
 			i++;
 		}
 	}
-	
 	return (ret);
 }
 

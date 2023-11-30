@@ -6,7 +6,7 @@
 /*   By: lbirloue <lbirloue@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 10:51:08 by lbirloue          #+#    #+#             */
-/*   Updated: 2023/11/28 12:27:49 by lbirloue         ###   ########.fr       */
+/*   Updated: 2023/11/30 17:49:41 by lbirloue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	dispatch(int *tab_a, int *tab_b, int argc)
 	else if (argc == 6)
 		tab_a = ft_algo_5_arg(tab_a, tab_b);
 	else
-		tab_a = big_algo(tab_a, tab_b, (argc - 1));
+		tab_a = big_algo(tab_a, tab_b, (argc - 1), (argc-1));
 	/*cheeeeeckkkkkkkkkkkkkkkkkkkkkkkkkkk*/
 //	int check = check_order(tab_a);
 //	printf("checkkk = %d\n", check);
